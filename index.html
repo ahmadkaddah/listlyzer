@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محلل قوائم تشغيل يوتيوب</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>محلل قوائم تشغيل يوتيوب</h1>
+            <p>أدخل رابط قائمة التشغيل للحصول على معلومات مفصلة</p>
+        </header>
+
+        <div class="theme-toggle">
+            <button id="theme-toggle-btn">
+                <i class="fas fa-moon"></i>
+                <span>الوضع المظلم</span>
+            </button>
+        </div>
+
+        <main>
+            <div class="input-container">
+                <input type="text" id="playlist-url" placeholder="أدخل رابط قائمة التشغيل من يوتيوب">
+                <button id="analyze-btn">تحليل <i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>جاري التحليل...</p>
+            </div>
+
+            <div class="results" id="results">
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="result-content">
+                        <h3>المدة الإجمالية</h3>
+                        <p id="total-duration">-- : -- : --</p>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="result-content">
+                        <h3>المدة بسرعات مختلفة</h3>
+                        <div class="speed-results">
+                            <div class="speed-item">
+                                <span>1.25x</span>
+                                <span id="speed-1-25">-- : -- : --</span>
+                            </div>
+                            <div class="speed-item">
+                                <span>1.5x</span>
+                                <span id="speed-1-5">-- : -- : --</span>
+                            </div>
+                            <div class="speed-item">
+                                <span>1.75x</span>
+                                <span id="speed-1-75">-- : -- : --</span>
+                            </div>
+                            <div class="speed-item">
+                                <span>2x</span>
+                                <span id="speed-2">-- : -- : --</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="result-content">
+                        <h3>إجمالي المشاهدات</h3>
+                        <p id="total-views">--</p>
+                    </div>
+                </div>
+
+                <div class="playlist-info">
+                    <h3>معلومات قائمة التشغيل</h3>
+                    <div class="playlist-header" id="playlist-header">
+                    </div>
+                    <div class="video-list" id="video-list">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fab fa-youtube"></i>
+                    <span>Listlyzer</span>
+                </div>
+                <div class="copyright">
+                    &copy; <span id="current-year"></span> Listlyzer - جميع الحقوق محفوظة
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
